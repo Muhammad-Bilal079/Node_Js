@@ -26,7 +26,7 @@ let registrationController = async (req, res) => {
             // JWT Token 
             // res send karnay say pehlay jwt token generate karna hota hai phir res send karna hota hai
             var token = jwt.sign(req.body, process.env.JWT_TOKEN)
-            console.log("jwt token ==>",token);
+            // console.log("jwt token ==>",token);
 
             res.status(200).json({
                 msg: "user saved",
