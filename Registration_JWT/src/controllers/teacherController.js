@@ -2,7 +2,9 @@
 
 let teacherController = (req,res)=>{
     res.status(200).json({
-        msg:"teaccher control"
+        msg:"ok",
+        myEmail:req.email,
+        myrole:req.role
     })
 }
 

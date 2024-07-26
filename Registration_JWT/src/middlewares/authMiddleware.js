@@ -6,7 +6,11 @@ let authMiddleware = (req, res, next) => {
 
     try {
         var decoded = jwt.verify(token, process.env.JWT_Token);
-        //    console.log(decoded) 
+           console.log(decoded) 
+           //yahan per role jab maloom hoga jab hum postman say login ka jwt autherization beareer main passs karain gay
+           //or sirf login kay token say hum us role ko pura access kar saktay hain
+           req.role = decoded.role
+           req.email = decoded.user
         next()
 
     } catch (error) {

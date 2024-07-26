@@ -11,7 +11,12 @@ let userSchema = new mongoose.Schema(
             required:true
         },
         username:String,
-        password:String
+        password:String,
+        role:{
+            type:String,
+            Enumerator :['admin','teacher','student'],
+            default:"student"
+        }
     
     }
     ,{

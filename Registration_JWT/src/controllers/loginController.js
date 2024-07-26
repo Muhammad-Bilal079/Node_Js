@@ -28,7 +28,7 @@ let loginController = async (req, res) => {
             if (result) {
                 // Passwords match generate token and send response
 
-                var token = jwt.sign(req.body, process.env.JWT_TOKEN , { expiresIn: '1d' } )
+                var token = jwt.sign({user:user.email,role:user.role}, process.env.JWT_TOKEN , { expiresIn: '1d' } )
                 res.status(200).json({
                     msg: "Login successful",
                     token,
