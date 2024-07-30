@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat applicatin</title>
+</head>
+<style>
+.myul{
+    list-style: none;
+}
+</style>
+<body>
+    <h1>Real time chat application</h1>
+
+    <ul class="myul">
+        <li>hello bhailog</li>
+        <li>hello bhailog</li>
+    </ul>
+
+    <form  class="myform">
+    <input type="text" size="70" class="myinput">
+    <input type="submit">
+</form>
+
+<script>
+    let myform = document.querySelector('.myform')
+    var msg = document.querySelector('.myinput')
+
+    myform.addEventListener('submit',(e)=>{
+        e.preventDefault()
+        console.log(msg.value);
+        
+    })
+</script>
+</body>
+</html>
