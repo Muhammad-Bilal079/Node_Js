@@ -12,10 +12,10 @@
 </style>
 <body>
     <h1>Real time chat application</h1>
+    <p>open multiple tabs on browser and communicate</p>
 
     <ul class="myul">
-        <li>hello bhailog</li>
-        <li>hello bhailog</li>
+        <li>welcome users !!!</li>
     </ul>
 
     <form  class="myform">
@@ -23,15 +23,32 @@
     <input type="submit">
 </form>
 
+<!-- client per used honay wala socket ka cdn  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js" integrity="sha512-11t8Q+vY9JlCrr+PveZKTYJq8n7O09Y5X/pk/aMd3vJugSvu4xOunGEUzaADqL3I8cZKE/pBwwCfXzDkRJh2sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
     let myform = document.querySelector('.myform')
     var msg = document.querySelector('.myinput')
+    var ul = document.querySelector('ul.myul')
+    var socket = io()
+
+    // listen 
+    socket.on('serverEvent',(payload)=>{
+        console.log(payload);
+        ul.innerHTML += `<li>${payload}</li>`
+    })
 
     myform.addEventListener('submit',(e)=>{
         e.preventDefault()
-        console.log(msg.value);
+        // console.log(msg.value)
+
+        //speak
+        socket.emit('clientEvent',msg.value)
         
+        msg.value = ' '
+
     })
+
 </script>
 </body>
 </html>
