@@ -1,10 +1,10 @@
-const axios = require('axios');
-const jwt = require('jsonwebtoken');
-const { oauth2Client } = require('../utils/googleClient');
-const User = require('../models/userModel');
+import axios from 'axios';
+import jwt from 'jsonwebtoken';
+import  oauth2Client  from '../utils/googleClient.js';
+import User from '../models/userModel.js';
 
 /* GET Google Authentication API. */
-exports.googleAuth = async (req, res, next) => {
+export const googleAuth = async (req, res, next) => {
     const code = req.query.code;
     try {
         const googleRes = await oauth2Client.getToken(code);
