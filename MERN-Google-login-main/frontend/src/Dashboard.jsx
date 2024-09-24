@@ -9,6 +9,8 @@ const Dashboard = () => {
         const data = localStorage.getItem('user-info');
         const userData = JSON.parse(data);
         setUserInfo(userData);
+        console.log(userData);
+        
     },[])
 
     const handleLogout = ()=>{

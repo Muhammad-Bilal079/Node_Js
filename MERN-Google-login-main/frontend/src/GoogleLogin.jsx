@@ -16,7 +16,8 @@ const GoolgeLogin = (props) => {
 				localStorage.setItem('user-info',JSON.stringify(obj));
 				navigate('/dashboard');
 			} else {
-				console.log(authResult);
+				// console.log(result);
+				// console.log(authResult);
 				throw new Error(authResult);
 			}
 		} catch (e) {
