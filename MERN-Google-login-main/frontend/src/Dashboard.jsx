@@ -5,27 +5,31 @@ const Dashboard = () => {
     const [userInfo, setUserInfo] = useState(null);
     const navigate = useNavigate();
 
-    useEffect(()=>{
+    useEffect(() => {
         const data = localStorage.getItem('user-info');
         const userData = JSON.parse(data);
         setUserInfo(userData);
         console.log(userData);
-        
-    },[])
 
-    const handleLogout = ()=>{
+    }, [])
+
+    const handleLogout = () => {
         localStorage.removeItem('user-info');
         navigate('/login');
     }
 
     return (
         <>
-            <h1>Welcome {userInfo?.name}</h1>
-            <h3>{userInfo?.email}</h3>
-            <img src={userInfo?.image} alt={userInfo?.name}/>
-            <button onClick={handleLogout}
+            <div style={{color:"yellow"}}>
+            <h1>Welcome {userInfo?.name}</h1><br />
+            <div style={{ display: "flex", gap: "20px" }}>
+                <img style={{ border: "2px solid gray", borderRadius: "50px" }} src={userInfo?.image} alt={userInfo?.name} /><br />
+                <h3>{userInfo?.email}</h3><br />
+            </div>
+            <button style={{ marginLeft: "80%", border: "2px solid black", backgroundColor: "gray", }} onClick={handleLogout}
             >Logout
             </button>
+            </div>
         </>
     )
 }
