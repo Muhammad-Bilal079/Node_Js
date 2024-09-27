@@ -24,6 +24,7 @@ const GoolgeLogin = (props) => {
 			console.log('Error while Google Login...', e);
 		}
 	};
+	
 
 	const googleLogin = useGoogleLogin({
 		onSuccess: responseGoogle,

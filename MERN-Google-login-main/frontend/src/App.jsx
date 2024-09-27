@@ -19,6 +19,7 @@ function App() {
 	}
 	return (
 		<BrowserRouter>
+		
 		    <RefrshHandler setIsAuthenticated={setIsAuthenticated} />
 			<Routes>
 				<Route path="/login" element={<GoogleWrapper />} />
